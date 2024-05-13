@@ -76,6 +76,20 @@ def draw_graph_with_plotly(G):
                         title='Graph Visualization with Plotly'))
     fig.show()
 
+def visualize_subgraph(G, title="Subgraph"):
+    pos = nx.spring_layout(G)  # Layout for the subgraph
+    plt.figure(figsize=(8, 8))
+    nx.draw(G, pos, with_labels=True, node_color='lightblue')
+    plt.title(title)
+    plt.show()
+
+def batch_process_graph(G, batch_size=10):
+    nodes = list(G.nodes())
+    for i in range(0, len(nodes), batch_size):
+        subgraph_nodes = nodes[i:i + batch_size]
+        subgraph = G.subgraph(subgraph_nodes)
+        visualize_subgraph(subgraph, title=f"Subgraph {i // batch_size + 1}")
+
 if __name__ == "__main__":
     G = nx.DiGraph()
     # Populate G with example data for demonstration
@@ -92,3 +106,4 @@ if __name__ == "__main__":
 
     draw_graph_with_matplotlib(G)
     draw_graph_with_plotly(G)
+    batch_process_graph(G, batch_size=20)
