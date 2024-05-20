@@ -6,9 +6,8 @@ def generate_users(num_users=1000):
     fake = Faker()
     users = [{'user_id': i,
               'name': fake.name(),
-              'address': fake.address(),
-              'email': fake.email()}
-             for i in range(num_users)]
+              'email': fake.email(),
+              'address': fake.address()} for i in range(num_users)]
     return pd.DataFrame(users)
 
 if __name__ == "__main__":

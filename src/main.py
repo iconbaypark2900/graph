@@ -3,14 +3,14 @@ import pandas as pd
 import logging
 import networkx as nx
 import matplotlib.pyplot as plt
-from src.data_generation.generate_users import generate_users
-from src.data_generation.generate_products import generate_products
-from src.data_generation.generate_transactions import generate_transactions
-from src.graph_construction.build_graph import build_complete_graph
-from src.analysis.query_graph import get_transactions_by_user, get_products_by_transaction
-from src.analysis.graph_algorithms import calculate_centrality, detect_communities
-from src.visualization.visualize_graph import draw_graph_with_matplotlib, draw_graph_with_plotly
-from src.visualization.visualize_graph import batch_process_graph
+from data_generation.generate_users import generate_users
+from data_generation.generate_products import generate_products
+from data_generation.generate_transactions import generate_transactions
+from graph_construction.build_graph import build_complete_graph
+from analysis.query_graph import get_transactions_by_user, get_products_by_transaction
+from analysis.graph_algorithms import calculate_centrality, detect_communities
+from visualization.visualize_graph import draw_graph_with_matplotlib, draw_graph_with_plotly
+from visualization.visualize_graph import batch_process_graph
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
